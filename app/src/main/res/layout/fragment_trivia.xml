@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayoutTrivia"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TriviaFragment">
+
+    <TextView
+        android:id="@+id/textViewHello"
+        android:layout_width="142dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="36dp"
+        android:text="Hola..."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewPikachu"
+        android:layout_width="257dp"
+        android:layout_height="241dp"
+        android:layout_marginTop="44dp"
+        android:src="@drawable/image20230705193833"
+        app:layout_constraintEnd_toEndOf="@+id/textViewHello"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="@+id/textViewHello"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHello" />
+
+    <TextView
+        android:id="@+id/textViewQuestion"
+        android:layout_width="239dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="36dp"
+        android:gravity="center"
+        android:text="¿Cúal es este pokemón?"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewPikachu"
+        app:layout_constraintStart_toStartOf="@+id/imageViewPikachu"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewPikachu" />
+
+    <RadioGroup
+        android:layout_width="210dp"
+        android:layout_height="195dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewQuestion"
+        app:layout_constraintStart_toStartOf="@+id/textViewQuestion"
+        app:layout_constraintTop_toBottomOf="@+id/textViewQuestion">
+
+        <RadioButton
+            android:id="@+id/radioButton8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bulbasaur" />
+
+        <RadioButton
+            android:id="@+id/radioButton7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Charmander" />
+
+        <RadioButton
+            android:id="@+id/radioButton5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pikachu" />
+
+        <RadioButton
+            android:id="@+id/radioButton6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Articuno" />
+    </RadioGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

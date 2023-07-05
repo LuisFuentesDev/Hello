@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayoutName"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NameFragment" >
+
+    <TextView
+        android:id="@+id/textViewWelcome"
+        android:layout_width="368dp"
+        android:layout_height="118dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center|start"
+        android:text="Bienvenido a LogoTrivia, Ingresa tu Nombre"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextName"
+        android:layout_width="252dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="68dp"
+        android:ems="10"
+        android:hint="Escribe tu nombre"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/textViewWelcome"
+        app:layout_constraintStart_toStartOf="@+id/textViewWelcome"
+        app:layout_constraintTop_toBottomOf="@+id/textViewWelcome" />
+
+    <Button
+        android:id="@+id/buttonStart"
+        android:layout_width="152dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="324dp"
+        android:text="COMENZAR"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextName"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextName"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextName" />
+</androidx.constraintlayout.widget.ConstraintLayout>
