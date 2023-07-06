@@ -8,7 +8,7 @@
     tools:context=".ResultFragment">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textViewResult"
         android:layout_width="227dp"
         android:layout_height="48dp"
         android:layout_marginTop="208dp"
@@ -23,8 +23,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="184dp"
         android:text="INTENTE NUEVAMENTE"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="@+id/textViewResult"
         app:layout_constraintHorizontal_bias="0.48"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintStart_toStartOf="@+id/textViewResult"
+        app:layout_constraintTop_toBottomOf="@+id/textViewResult" />
 </androidx.constraintlayout.widget.ConstraintLayout>

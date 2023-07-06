@@ -3,10 +3,16 @@ package com.example.hello;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.example.hello.databinding.FragmentNameBinding;
+import com.example.hello.databinding.FragmentTriviaBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,9 +21,12 @@ import android.view.ViewGroup;
  */
 public class TriviaFragment extends Fragment {
 
+    private FragmentTriviaBinding binding;
+
+    private int checkedId;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM1 = "nombre";
     private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
@@ -58,7 +67,34 @@ public class TriviaFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_trivia, container, false);
+        binding = FragmentTriviaBinding.inflate(getLayoutInflater(), container, false);
+
+        binding.textViewHello.setText("Hola, " + mParam1);
+
+
+        binding.buttonSend.setOnClickListener(view -> {
+
+            if (binding.radioPokemon.getCheckedRadioButtonId() == -1) {
+                Toast.makeText(getContext(), "Selecciona una opción", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if (binding.radioPokemon.getCheckedRadioButtonId() == binding.radioButton5.getId()) {
+                Bundle bundle = new Bundle();
+                bundle.putString("respuesta", "Correcto");
+                bundle.putString("nombre", mParam1);
+                Navigation.findNavController(getView()).navigate(R.id.action_triviaFragment_to_resultFragment, bundle);
+
+
+            } else {
+                Bundle bundle = new Bundle();
+                bundle.putString("respuesta", "Incorrecto");
+                bundle.putString("nombre", mParam1);
+                Navigation.findNavController(getView()).navigate(R.id.action_triviaFragment_to_resultFragment, bundle);
+            }
+
+        });
+
+        return binding.getRoot();
     }
 }

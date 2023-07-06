@@ -3,10 +3,14 @@ package com.example.hello;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.hello.databinding.FragmentResultBinding;
+import com.example.hello.databinding.FragmentTriviaBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,6 +24,7 @@ public class ResultFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    private FragmentResultBinding binding;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -34,7 +39,7 @@ public class ResultFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ResultFragment.
+     * @return A new instance of fragment FragmentRespuesta.
      */
     // TODO: Rename and change types and number of parameters
     public static ResultFragment newInstance(String param1, String param2) {
@@ -50,8 +55,8 @@ public class ResultFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            mParam1 = getArguments().getString("respuesta");
+            mParam2 = getArguments().getString("nombre");
         }
     }
 
@@ -59,6 +64,18 @@ public class ResultFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_result, container, false);
+        binding = FragmentResultBinding.inflate(getLayoutInflater(),
+                container,false);
+
+        binding.textViewResult.setText(mParam1);
+
+
+        binding.buttonAgain.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("nombre", mParam2);
+            Navigation.findNavController(getView()).navigate(R.id.action_resultFragment_to_triviaFragment, bundle);
+        });
+
+        return binding.getRoot();
     }
 }
